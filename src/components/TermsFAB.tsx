@@ -18,173 +18,133 @@ export const TermsFAB = () => {
     <>
       <Button
         onClick={() => setOpen(true)}
-        size="lg"
-        className="fixed bottom-8 right-8 h-16 w-16 rounded-full bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 hover:opacity-90 shadow-lg hover:shadow-purple-500/50 transition-all duration-300 z-50"
+        size="icon"
+        className="fixed bottom-6 right-6 h-12 w-12 rounded-full shadow-lg z-50"
         aria-label="Termos e Condições"
       >
-        <FileText className="h-6 w-6" />
+        <FileText className="h-5 w-5" />
       </Button>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-3xl max-h-[80vh] bg-card/95 backdrop-blur-sm border-border/50">
+        <DialogContent className="max-w-2xl max-h-[70vh] bg-card border-border">
           <DialogHeader>
-            <DialogTitle className="text-2xl gradient-text">
+            <DialogTitle className="text-lg gradient-text">
               Termos e Condições
             </DialogTitle>
-            <DialogDescription>
+            <DialogDescription className="text-sm">
               Informações importantes sobre nosso serviço
             </DialogDescription>
           </DialogHeader>
 
           <Tabs defaultValue="terms" className="w-full">
             <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="terms" className="flex items-center gap-2">
-                <FileText className="h-4 w-4" />
+              <TabsTrigger value="terms" className="text-xs">
+                <FileText className="h-3 w-3 mr-1" />
                 Termos
               </TabsTrigger>
-              <TabsTrigger value="refund" className="flex items-center gap-2">
-                <RefreshCw className="h-4 w-4" />
+              <TabsTrigger value="refund" className="text-xs">
+                <RefreshCw className="h-3 w-3 mr-1" />
                 Reembolso
               </TabsTrigger>
-              <TabsTrigger value="guarantee" className="flex items-center gap-2">
-                <Shield className="h-4 w-4" />
+              <TabsTrigger value="guarantee" className="text-xs">
+                <Shield className="h-3 w-3 mr-1" />
                 Garantia
               </TabsTrigger>
             </TabsList>
 
-            <ScrollArea className="h-[500px] mt-4 pr-4">
-              <TabsContent value="terms" className="space-y-4">
+            <ScrollArea className="h-[400px] mt-4 pr-4">
+              <TabsContent value="terms" className="space-y-3 text-sm">
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 gradient-text">
+                  <h3 className="text-base font-semibold mb-2">
                     Nosso Compromisso
                   </h3>
-                  <p className="text-muted-foreground">
-                    Somos dedicados a fornecer materiais educacionais de alta qualidade para 
-                    ajudar estudantes moçambicanos a alcançarem o sucesso nos exames NEM.
+                  <p className="text-muted-foreground text-sm">
+                    Fornecemos materiais educacionais de qualidade para ajudar estudantes 
+                    moçambicanos a alcançarem o sucesso nos exames NEM.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 gradient-text">
+                  <h3 className="text-base font-semibold mb-2">
                     O Que Você Recebe
                   </h3>
-                  <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                  <ul className="list-disc list-inside space-y-1 text-muted-foreground text-sm">
                     <li>Exames completos da classe selecionada</li>
-                    <li>Material atualizado e revisado por professores</li>
+                    <li>Material atualizado e revisado</li>
                     <li>Gabaritos e soluções detalhadas</li>
-                    <li>Dicas e estratégias de estudo</li>
-                    <li>Entrega garantida em até 5 minutos após pagamento</li>
+                    <li>Entrega em até 5 minutos após pagamento</li>
                   </ul>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 gradient-text">
-                    Nosso Foco
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Trabalhamos incansavelmente para garantir que cada estudante tenha acesso 
-                    aos melhores recursos de preparação. Nosso objetivo é o seu sucesso acadêmico.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-semibold mb-2 gradient-text">
+                  <h3 className="text-base font-semibold mb-2">
                     Uso do Material
                   </h3>
-                  <p className="text-muted-foreground">
-                    Os materiais fornecidos são para uso pessoal e educacional. A redistribuição 
-                    ou venda não autorizada é estritamente proibida.
+                  <p className="text-muted-foreground text-sm">
+                    Os materiais são para uso pessoal e educacional. A redistribuição 
+                    não autorizada é proibida.
                   </p>
                 </div>
               </TabsContent>
 
-              <TabsContent value="refund" className="space-y-4">
+              <TabsContent value="refund" className="space-y-3 text-sm">
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 gradient-text">
+                  <h3 className="text-base font-semibold mb-2">
                     Política de Reembolso
                   </h3>
-                  <p className="text-muted-foreground mb-4">
-                    Estamos comprometidos com a sua satisfação. Se você não receber o material 
-                    dentro do prazo estipulado ou se houver algum problema com o conteúdo, 
-                    oferecemos reembolso total.
+                  <p className="text-muted-foreground text-sm">
+                    Garantimos seu dinheiro de volta se você não receber os materiais 
+                    conforme prometido.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 gradient-text">
-                    Condições para Reembolso
+                  <h3 className="text-base font-semibold mb-2">
+                    Quando Solicitar
                   </h3>
-                  <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                    <li>Material não recebido após 5 minutos do pagamento confirmado</li>
-                    <li>Arquivos corrompidos ou ilegíveis</li>
-                    <li>Conteúdo significativamente diferente do anunciado</li>
-                    <li>Problemas técnicos comprovados na entrega</li>
+                  <ul className="list-disc list-inside space-y-1 text-muted-foreground text-sm">
+                    <li>Se não receber os materiais em 24 horas</li>
+                    <li>Se os materiais estiverem incompletos</li>
+                    <li>Se houver erro no pedido</li>
                   </ul>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 gradient-text">
-                    Prazo de Solicitação
+                  <h3 className="text-base font-semibold mb-2">
+                    Prazo
                   </h3>
-                  <p className="text-muted-foreground">
-                    Solicitações de reembolso devem ser feitas em até 24 horas após a compra. 
-                    Entre em contato através do email fornecido durante o cadastro.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-semibold mb-2 gradient-text">
-                    Processamento
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Reembolsos aprovados são processados em até 3 dias úteis através do mesmo 
-                    método de pagamento utilizado na compra.
+                  <p className="text-muted-foreground text-sm">
+                    Reembolsos são processados em até 72 horas após aprovação.
                   </p>
                 </div>
               </TabsContent>
 
-              <TabsContent value="guarantee" className="space-y-4">
+              <TabsContent value="guarantee" className="space-y-3 text-sm">
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 gradient-text">
-                    Nossa Garantia de Qualidade
+                  <h3 className="text-base font-semibold mb-2">
+                    Garantia de Qualidade
                   </h3>
-                  <p className="text-muted-foreground">
-                    Garantimos que todos os materiais fornecidos são de alta qualidade, 
-                    atualizados e verificados por profissionais da educação.
+                  <p className="text-muted-foreground text-sm">
+                    Todos os materiais são verificados e atualizados regularmente.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 gradient-text">
-                    O Que Garantimos
+                  <h3 className="text-base font-semibold mb-2">
+                    Garantia de Entrega
                   </h3>
-                  <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                    <li>Conteúdo alinhado com o currículo oficial NEM</li>
-                    <li>Exames recentes e relevantes</li>
-                    <li>Gabaritos corretos e soluções detalhadas</li>
-                    <li>Formato legível e organizado</li>
-                    <li>Entrega rápida e segura</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-semibold mb-2 gradient-text">
-                    Suporte Contínuo
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Após receber seus exames, você receberá o material completo da classe 
-                    selecionada conforme anunciado. O comprador receberá os exames no máximo 
-                    5 minutos após o pagamento ser confirmado.
+                  <p className="text-muted-foreground text-sm">
+                    Você receberá os exames da classe selecionada no máximo 5 minutos 
+                    após confirmação do pagamento.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 gradient-text">
-                    Privacidade e Segurança
+                  <h3 className="text-base font-semibold mb-2">
+                    Suporte
                   </h3>
-                  <p className="text-muted-foreground">
-                    Seus dados pessoais e informações de pagamento são tratados com máxima 
-                    confidencialidade e segurança. Não compartilhamos suas informações com terceiros.
+                  <p className="text-muted-foreground text-sm">
+                    Nossa equipe está disponível para ajudar com qualquer dúvida ou problema.
                   </p>
                 </div>
               </TabsContent>
