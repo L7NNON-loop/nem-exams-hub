@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { SurveyData } from "./Survey";
-import { CreditCard, GraduationCap, CheckCircle2, Smartphone } from "lucide-react";
+import { CreditCard, GraduationCap, CheckCircle2, Smartphone, Shield, Zap } from "lucide-react";
 import { toast } from "sonner";
 
 interface PaymentSummaryProps {
@@ -104,88 +104,97 @@ export const PaymentSummary = ({ surveyData }: PaymentSummaryProps) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="w-full max-w-3xl">
-        <div className="mb-4 text-center animate-fade-in">
-          <h2 className="text-2xl font-bold gradient-text mb-1">
+    <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
+      
+      <div className="w-full max-w-5xl relative z-10">
+        <div className="mb-6 text-center animate-fade-in">
+          <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-2">
             Finalizar Pedido
           </h2>
-          <p className="text-sm text-muted-foreground">
-            Complete seu pagamento para receber os materiais.
+          <p className="text-base text-muted-foreground">
+            Complete seu pagamento para receber os materiais via WhatsApp
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4">
-          <Card className="p-5 bg-card/80 backdrop-blur-sm border-border/50 animate-scale-in">
-            <h3 className="text-base font-semibold mb-3 flex items-center gap-2">
-              <GraduationCap className="w-4 h-4 text-primary" />
-              Resumo do Pedido
-            </h3>
+        <div className="grid lg:grid-cols-2 gap-6">
+          {/* Summary Card */}
+          <Card className="p-6 bg-card/80 backdrop-blur-xl border-border/50 animate-scale-in shadow-xl">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <GraduationCap className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold">Resumo do Pedido</h3>
+            </div>
             
-            <div className="space-y-2">
-              <div className="pb-2 border-b border-border/50">
-                <p className="text-xs text-muted-foreground mb-0.5">Nome</p>
-                <p className="text-sm font-medium">{surveyData.name}</p>
+            <div className="space-y-4">
+              <div className="p-3 rounded-lg bg-background/50">
+                <p className="text-xs text-muted-foreground mb-1">Nome</p>
+                <p className="text-sm font-semibold">{surveyData.name}</p>
               </div>
               
-              <div className="pb-2 border-b border-border/50">
-                <p className="text-xs text-muted-foreground mb-0.5">Email</p>
-                <p className="text-sm font-medium">{surveyData.email}</p>
+              <div className="p-3 rounded-lg bg-background/50">
+                <p className="text-xs text-muted-foreground mb-1">Email</p>
+                <p className="text-sm font-semibold">{surveyData.email}</p>
               </div>
               
-              <div className="pb-2 border-b border-border/50">
-                <p className="text-xs text-muted-foreground mb-0.5">WhatsApp</p>
-                <p className="text-sm font-medium">{surveyData.whatsapp}</p>
+              <div className="p-3 rounded-lg bg-background/50">
+                <p className="text-xs text-muted-foreground mb-1">WhatsApp</p>
+                <p className="text-sm font-semibold">{surveyData.whatsapp}</p>
               </div>
               
-              <div className="pb-2 border-b border-border/50">
-                <p className="text-xs text-muted-foreground mb-0.5">Produto Selecionado</p>
-                <p className="text-sm font-medium text-primary">{surveyData.product}</p>
+              <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
+                <p className="text-xs text-muted-foreground mb-1">Produto Selecionado</p>
+                <p className="text-base font-bold text-primary">{surveyData.product}</p>
               </div>
               
-              <div className="pt-1">
-                <div className="flex justify-between items-center text-lg font-bold">
-                  <span>Total</span>
-                  <span className="text-primary">{PRICE},00 MT</span>
+              <div className="pt-3 mt-3 border-t border-border">
+                <div className="flex justify-between items-center">
+                  <span className="text-lg font-semibold">Total a Pagar</span>
+                  <span className="text-2xl font-bold text-primary">{PRICE},00 MT</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-3 space-y-1.5 text-xs text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-3 h-3 text-primary" />
-                <span>Entrega via WhatsApp</span>
+            <div className="mt-5 pt-5 border-t border-border space-y-2">
+              <div className="flex items-center gap-2 text-sm">
+                <Zap className="w-4 h-4 text-primary" />
+                <span className="text-muted-foreground">Entrega via WhatsApp</span>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-3 h-3 text-primary" />
-                <span>Materiais completos</span>
+              <div className="flex items-center gap-2 text-sm">
+                <Shield className="w-4 h-4 text-primary" />
+                <span className="text-muted-foreground">Pagamento seguro via MPesa</span>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-3 h-3 text-primary" />
-                <span>Garantia de qualidade</span>
+              <div className="flex items-center gap-2 text-sm">
+                <CheckCircle2 className="w-4 h-4 text-primary" />
+                <span className="text-muted-foreground">Garantia de qualidade</span>
               </div>
             </div>
           </Card>
 
-          <Card className="p-5 bg-card/80 backdrop-blur-sm border-border/50 animate-scale-in" style={{ animationDelay: "0.1s" }}>
-            <h3 className="text-base font-semibold mb-3 flex items-center gap-2">
-              <CreditCard className="w-4 h-4 text-primary" />
-              Método de Pagamento
-            </h3>
+          {/* Payment Card */}
+          <Card className="p-6 bg-card/80 backdrop-blur-xl border-border/50 animate-scale-in shadow-xl" style={{ animationDelay: "0.1s" }}>
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <CreditCard className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold">Pagamento</h3>
+            </div>
 
-            <div className="mb-3 p-2.5 rounded-lg bg-primary/10 border border-primary/20">
-              <div className="flex items-center gap-2">
-                <Smartphone className="w-5 h-5 text-primary" />
+            <div className="mb-6 p-4 rounded-xl bg-primary/10 border-2 border-primary/20">
+              <div className="flex items-center gap-3">
+                <Smartphone className="w-8 h-8 text-primary" />
                 <div>
-                  <p className="text-sm font-semibold">M-Pesa</p>
-                  <p className="text-xs text-muted-foreground">Pagamento via M-Pesa</p>
+                  <p className="text-base font-bold">M-Pesa</p>
+                  <p className="text-xs text-muted-foreground">Pagamento rápido e seguro</p>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-5">
               <div>
-                <Label htmlFor="mpesa" className="text-sm mb-1.5 block">
+                <Label htmlFor="mpesa" className="text-base font-semibold mb-2 block">
                   Número M-Pesa
                 </Label>
                 <Input
@@ -194,10 +203,11 @@ export const PaymentSummary = ({ surveyData }: PaymentSummaryProps) => {
                   placeholder="84XXXXXXX ou 85XXXXXXX"
                   value={mpesaNumber}
                   onChange={(e) => setMpesaNumber(formatMpesaNumber(e.target.value))}
-                  className="h-11 text-base bg-background/50 border-border/50 focus:border-primary transition-colors"
+                  className="h-14 text-base bg-background/50 border-border/50 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
                   maxLength={9}
                 />
-                <p className="text-xs text-muted-foreground mt-1">
+                <p className="text-xs text-muted-foreground mt-2 flex items-center gap-1">
+                  <CheckCircle2 className="w-3 h-3" />
                   9 dígitos, iniciando com 84 ou 85
                 </p>
               </div>
@@ -205,13 +215,24 @@ export const PaymentSummary = ({ surveyData }: PaymentSummaryProps) => {
               <Button
                 onClick={handlePayment}
                 disabled={!validateMpesaNumber(mpesaNumber) || isProcessing}
-                className="w-full h-11 text-base"
+                className="w-full h-14 text-lg font-bold glow-effect hover:scale-105 transition-all duration-300"
               >
-                {isProcessing ? "Processando..." : "Iniciar Pagamento"}
+                {isProcessing ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
+                    Processando...
+                  </>
+                ) : (
+                  <>
+                    <Smartphone className="w-5 h-5 mr-2" />
+                    Pagar {PRICE},00 MT
+                  </>
+                )}
               </Button>
 
-              <p className="text-xs text-center text-muted-foreground">
-                Ao prosseguir, você concorda com nossos termos e condições
+              <p className="text-xs text-center text-muted-foreground pt-2">
+                <Shield className="w-3 h-3 inline mr-1" />
+                Pagamento seguro e protegido
               </p>
             </div>
           </Card>
