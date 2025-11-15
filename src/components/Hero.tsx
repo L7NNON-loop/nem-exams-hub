@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { BookOpen, CheckCircle, Clock, Award, ChevronRight } from "lucide-react";
+import { GraduationCap, FileText, CheckCircle } from "lucide-react";
 
 interface HeroProps {
   onStart: () => void;
@@ -8,70 +7,42 @@ interface HeroProps {
 
 export const Hero = ({ onStart }: HeroProps) => {
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background gradient effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-primary/5" />
-      <div className="absolute top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-20 right-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "1.5s" }} />
-      
-      <div className="relative z-10 max-w-4xl mx-auto text-center px-6">
-        <div className="mb-6 animate-fade-in">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <BookOpen className="w-10 h-10 text-primary animate-float" />
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="w-full max-w-2xl text-center space-y-6 animate-fade-in">
+        <div className="flex justify-center mb-4">
+          <GraduationCap className="w-16 h-16 text-primary" strokeWidth={1.5} />
+        </div>
+        
+        <h1 className="text-3xl md:text-4xl font-bold gradient-text mb-3">
+          Exames NEM 2025
+        </h1>
+        
+        <p className="text-base text-muted-foreground max-w-lg mx-auto mb-6">
+          Prepare-se para os exames com materiais completos e atualizados
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-md mx-auto mb-8">
+          <div className="flex items-center gap-2 text-sm">
+            <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+            <span>9ª, 10ª e 12ª Classe</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-            Exames NEM
-          </h1>
-          <p className="text-base md:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Todos os exames escolares para você se preparar e alcançar o sucesso
-          </p>
+          <div className="flex items-center gap-2 text-sm">
+            <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+            <span>257 MT</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm">
+            <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+            <span>Entrega Imediata</span>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4 mb-8 animate-scale-in">
-          <Card className="p-4 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 group">
-            <div className="flex flex-col items-center text-center">
-              <CheckCircle className="w-8 h-8 text-primary mb-3 group-hover:scale-110 transition-transform" />
-              <h3 className="text-base font-semibold mb-1 gradient-text">
-                Material Completo
-              </h3>
-              <p className="text-xs text-muted-foreground">
-                Exames atualizados de todas as classes
-              </p>
-            </div>
-          </Card>
-
-          <Card className="p-4 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 group">
-            <div className="flex flex-col items-center text-center">
-              <Clock className="w-8 h-8 text-primary mb-3 group-hover:scale-110 transition-transform" />
-              <h3 className="text-base font-semibold mb-1 gradient-text">
-                Entrega Rápida
-              </h3>
-              <p className="text-xs text-muted-foreground">
-                Receba em até 5 minutos no seu email
-              </p>
-            </div>
-          </Card>
-
-          <Card className="p-4 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 group">
-            <div className="flex flex-col items-center text-center">
-              <Award className="w-8 h-8 text-primary mb-3 group-hover:scale-110 transition-transform" />
-              <h3 className="text-base font-semibold mb-1 gradient-text">
-                Qualidade Garantida
-              </h3>
-              <p className="text-xs text-muted-foreground">
-                Materiais revisados e profissionais
-              </p>
-            </div>
-          </Card>
-        </div>
-
-        <Button
+        <Button 
           onClick={onStart}
           size="lg"
-          className="text-base px-6 py-5 shadow-lg transition-all duration-300 animate-scale-in group"
+          className="px-8 py-6 text-base"
         >
-          Começar Agora
-          <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          <FileText className="w-4 h-4 mr-2" />
+          Adquirir Exames
         </Button>
       </div>
     </div>

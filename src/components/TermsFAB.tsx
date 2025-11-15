@@ -3,13 +3,12 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { FileText, Shield, RefreshCw } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { FileText } from "lucide-react";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export const TermsFAB = () => {
   const [open, setOpen] = useState(false);
@@ -19,132 +18,107 @@ export const TermsFAB = () => {
       <Button
         onClick={() => setOpen(true)}
         size="icon"
-        className="fixed bottom-6 right-6 h-12 w-12 rounded-full shadow-lg z-50"
-        aria-label="Termos e Condições"
+        className="fixed bottom-4 right-4 h-12 w-12 rounded-full shadow-lg z-50"
       >
         <FileText className="h-5 w-5" />
       </Button>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-2xl max-h-[70vh] bg-card border-border">
-          <DialogHeader>
-            <DialogTitle className="text-lg gradient-text">
-              Termos e Condições
-            </DialogTitle>
-            <DialogDescription className="text-sm">
-              Informações importantes sobre nosso serviço
-            </DialogDescription>
+        <DialogContent className="max-w-2xl max-h-[80vh] p-0">
+          <DialogHeader className="p-4 pb-2">
+            <DialogTitle className="text-lg">Termos e Condições</DialogTitle>
           </DialogHeader>
 
           <Tabs defaultValue="terms" className="w-full">
-            <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="terms" className="text-xs">
-                <FileText className="h-3 w-3 mr-1" />
-                Termos
-              </TabsTrigger>
-              <TabsTrigger value="refund" className="text-xs">
-                <RefreshCw className="h-3 w-3 mr-1" />
-                Reembolso
-              </TabsTrigger>
-              <TabsTrigger value="guarantee" className="text-xs">
-                <Shield className="h-3 w-3 mr-1" />
-                Garantia
-              </TabsTrigger>
+            <TabsList className="w-full grid grid-cols-3 mx-4" style={{ width: 'calc(100% - 2rem)' }}>
+              <TabsTrigger value="terms" className="text-xs">Termos</TabsTrigger>
+              <TabsTrigger value="refund" className="text-xs">Reembolso</TabsTrigger>
+              <TabsTrigger value="guarantee" className="text-xs">Garantia</TabsTrigger>
             </TabsList>
 
-            <ScrollArea className="h-[400px] mt-4 pr-4">
-              <TabsContent value="terms" className="space-y-3 text-sm">
+            <ScrollArea className="h-[50vh] px-4 pb-4">
+              <TabsContent value="terms" className="mt-3 text-sm space-y-3">
                 <div>
-                  <h3 className="text-base font-semibold mb-2">
-                    Nosso Compromisso
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    Fornecemos materiais educacionais de qualidade para ajudar estudantes 
-                    moçambicanos a alcançarem o sucesso nos exames NEM.
+                  <h4 className="font-semibold mb-1.5 text-primary">Nosso Objetivo</h4>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Fornecemos materiais de estudo completos e atualizados para ajudar estudantes 
+                    moçambicanos a se prepararem para os Exames Nacionais de Moçambique (NEM).
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-base font-semibold mb-2">
-                    O Que Você Recebe
-                  </h3>
-                  <ul className="list-disc list-inside space-y-1 text-muted-foreground text-sm">
-                    <li>Exames completos da classe selecionada</li>
-                    <li>Material atualizado e revisado</li>
-                    <li>Gabaritos e soluções detalhadas</li>
-                    <li>Entrega em até 5 minutos após pagamento</li>
+                  <h4 className="font-semibold mb-1.5 text-primary">O Que Oferecemos</h4>
+                  <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                    <li>Exames completos para 9ª, 10ª e 12ª Classes</li>
+                    <li>Materiais organizados e de fácil compreensão</li>
+                    <li>Conteúdo atualizado conforme o currículo oficial</li>
+                    <li>Entrega imediata via WhatsApp após confirmação de pagamento</li>
                   </ul>
                 </div>
 
                 <div>
-                  <h3 className="text-base font-semibold mb-2">
-                    Uso do Material
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    Os materiais são para uso pessoal e educacional. A redistribuição 
-                    não autorizada é proibida.
+                  <h4 className="font-semibold mb-1.5 text-primary">Entrega</h4>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Os materiais serão enviados em formato PDF para o número de WhatsApp fornecido 
+                    no máximo 5 minutos após a confirmação do pagamento.
                   </p>
                 </div>
               </TabsContent>
 
-              <TabsContent value="refund" className="space-y-3 text-sm">
+              <TabsContent value="refund" className="mt-3 text-sm space-y-3">
                 <div>
-                  <h3 className="text-base font-semibold mb-2">
-                    Política de Reembolso
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    Garantimos seu dinheiro de volta se você não receber os materiais 
-                    conforme prometido.
+                  <h4 className="font-semibold mb-1.5 text-primary">Política de Reembolso</h4>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Oferecemos reembolso total caso ocorra algum dos seguintes problemas:
                   </p>
-                </div>
-
-                <div>
-                  <h3 className="text-base font-semibold mb-2">
-                    Quando Solicitar
-                  </h3>
-                  <ul className="list-disc list-inside space-y-1 text-muted-foreground text-sm">
-                    <li>Se não receber os materiais em 24 horas</li>
-                    <li>Se os materiais estiverem incompletos</li>
-                    <li>Se houver erro no pedido</li>
+                  <ul className="list-disc list-inside space-y-1 text-muted-foreground mt-2">
+                    <li>Material não entregue após 24 horas do pagamento</li>
+                    <li>Arquivo corrompido ou ilegível</li>
+                    <li>Material errado enviado (classe diferente da solicitada)</li>
                   </ul>
                 </div>
 
                 <div>
-                  <h3 className="text-base font-semibold mb-2">
-                    Prazo
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    Reembolsos são processados em até 72 horas após aprovação.
+                  <h4 className="font-semibold mb-1.5 text-primary">Como Solicitar</h4>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Para solicitar reembolso, entre em contato via WhatsApp com:
+                  </p>
+                  <ul className="list-disc list-inside space-y-1 text-muted-foreground mt-2">
+                    <li>Comprovativo de pagamento</li>
+                    <li>Descrição detalhada do problema</li>
+                    <li>Prints de tela, se aplicável</li>
+                  </ul>
+                  <p className="text-muted-foreground leading-relaxed mt-2">
+                    O reembolso será processado em até 3 dias úteis.
                   </p>
                 </div>
               </TabsContent>
 
-              <TabsContent value="guarantee" className="space-y-3 text-sm">
+              <TabsContent value="guarantee" className="mt-3 text-sm space-y-3">
                 <div>
-                  <h3 className="text-base font-semibold mb-2">
-                    Garantia de Qualidade
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    Todos os materiais são verificados e atualizados regularmente.
+                  <h4 className="font-semibold mb-1.5 text-primary">Nossa Garantia</h4>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Garantimos a qualidade e autenticidade de todos os nossos materiais.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-base font-semibold mb-2">
-                    Garantia de Entrega
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    Você receberá os exames da classe selecionada no máximo 5 minutos 
-                    após confirmação do pagamento.
-                  </p>
+                  <h4 className="font-semibold mb-1.5 text-primary">O Que Garantimos</h4>
+                  <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                    <li>Conteúdo alinhado com o currículo oficial do NEM</li>
+                    <li>Materiais completos sem páginas faltando</li>
+                    <li>Qualidade de imagem legível e profissional</li>
+                    <li>Organização clara por disciplina e tópico</li>
+                    <li>Suporte via WhatsApp para dúvidas sobre o material</li>
+                  </ul>
                 </div>
 
                 <div>
-                  <h3 className="text-base font-semibold mb-2">
-                    Suporte
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    Nossa equipe está disponível para ajudar com qualquer dúvida ou problema.
+                  <h4 className="font-semibold mb-1.5 text-primary">Compromisso</h4>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Estamos comprometidos em fornecer o melhor suporte possível para o sucesso 
+                    dos estudantes moçambicanos. Caso encontre qualquer problema com o material, 
+                    entre em contato conosco imediatamente.
                   </p>
                 </div>
               </TabsContent>
