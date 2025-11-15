@@ -18,25 +18,25 @@ export const TermsFAB = () => {
       <Button
         onClick={() => setOpen(true)}
         size="icon"
-        className="fixed bottom-4 right-4 h-12 w-12 rounded-full shadow-lg z-50"
+        className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-xl glow-effect hover:scale-110 transition-all duration-300 z-50"
       >
-        <FileText className="h-5 w-5" />
+        <FileText className="h-6 w-6" />
       </Button>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-2xl max-h-[80vh] p-0">
-          <DialogHeader className="p-4 pb-2">
-            <DialogTitle className="text-lg">Termos e Condições</DialogTitle>
+        <DialogContent className="max-w-3xl max-h-[85vh] p-0 bg-card/95 backdrop-blur-xl border-border">
+          <DialogHeader className="p-6 pb-3 border-b border-border">
+            <DialogTitle className="text-2xl font-bold gradient-text">Termos e Condições</DialogTitle>
           </DialogHeader>
 
           <Tabs defaultValue="terms" className="w-full">
-            <TabsList className="w-full grid grid-cols-3 mx-4" style={{ width: 'calc(100% - 2rem)' }}>
-              <TabsTrigger value="terms" className="text-xs">Termos</TabsTrigger>
-              <TabsTrigger value="refund" className="text-xs">Reembolso</TabsTrigger>
-              <TabsTrigger value="guarantee" className="text-xs">Garantia</TabsTrigger>
+            <TabsList className="w-full grid grid-cols-3 mx-6 bg-muted/50" style={{ width: 'calc(100% - 3rem)' }}>
+              <TabsTrigger value="terms" className="text-sm font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Termos</TabsTrigger>
+              <TabsTrigger value="refund" className="text-sm font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Reembolso</TabsTrigger>
+              <TabsTrigger value="guarantee" className="text-sm font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Garantia</TabsTrigger>
             </TabsList>
 
-            <ScrollArea className="h-[50vh] px-4 pb-4">
+            <ScrollArea className="h-[55vh] px-6 pb-6">
               <TabsContent value="terms" className="mt-3 text-sm space-y-3">
                 <div>
                   <h4 className="font-semibold mb-1.5 text-primary">Nosso Objetivo</h4>
